@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aslbek | Full-Stack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #38bdf8;
+            --bg: #030712;
+            --card-bg: rgba(17, 24, 39, 0.9);
+            --border: rgba(56, 189, 248, 0.3);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+
+        /* NAVBAR */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; background: rgba(3, 7, 18, 0.9);
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            border-bottom: 1px solid var(--border); backdrop-filter: blur(15px);
+        }
+        .logo { font-size: 28px; font-weight: 900; color: var(--primary); text-decoration: none; letter-spacing: 2px; }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav ul li a { color: var(--text-dim); text-decoration: none; font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover { color: var(--primary); }
+
+        /* SECTIONS */
+        section { padding: 120px 8% 80px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+        .container { max-width: 1400px; width: 100%; margin: 0 auto; }
+
+        /* HERO SECTION */
+        .hero { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+        .hero-text { flex: 1.2; }
+        .hero-text h1 { font-size: clamp(45px, 7vw, 90px); line-height: 1.1; margin-bottom: 20px; }
+        .hero-text span { color: var(--primary); text-shadow: 0 0 20px rgba(56, 189, 248, 0.3); }
+        .hero-text p { font-size: 19px; color: var(--text-dim); margin-bottom: 30px; }
+
+        .hero-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+        .info-item { background: var(--card-bg); padding: 15px; border-radius: 12px; border-left: 4px solid var(--primary); }
+        .info-item h4 { color: var(--primary); font-size: 13px; text-transform: uppercase; }
+        .info-item p { font-size: 16px; margin: 0; color: white; }
+
+        /* KATTALASHTIRILGAN RAMKA */
+        .morphing-box {
+            width: 550px; height: 550px; border: 12px solid var(--primary);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            overflow: hidden; animation: morphing 8s ease-in-out infinite;
+            box-shadow: 0 0 100px rgba(56, 189, 248, 0.4); flex-shrink: 0;
+        }
+        .morphing-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        @keyframes morphing {
+            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        }
+
+        /* SKILLS & CONTACT GRID */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card {
+            background: var(--card-bg); padding: 40px; border-radius: 25px;
+            border: 1px solid var(--border); text-align: center; color: white; text-decoration: none;
+            transition: 0.4s; display: flex; flex-direction: column; align-items: center; gap: 15px;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); background: rgba(56, 189, 248, 0.05); }
+        .card i { font-size: 50px; color: var(--primary); }
+
+        /* PROJECTS */
+        .projects-flex { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 30px; }
+        .project-card {
+            background: #0b0f1a; border: 2px solid var(--border); padding: 25px;
+            border-radius: 25px; text-align: center; flex: 1; min-width: 320px; max-width: 480px;
+        }
+
+        canvas { background: #000; border-radius: 10px; max-width: 100%; }
+        .calc-body { background: #111; padding: 15px; border-radius: 20px; width: 100%; max-width: 300px; margin: 0 auto; }
+        #calc-display { width: 100%; height: 60px; background: #222; border: none; border-radius: 10px; margin-bottom: 15px; color: var(--primary); text-align: right; padding: 10px; font-size: 24px; }
+        .calc-buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .calc-btn { padding: 15px; background: #1e293b; border: none; border-radius: 10px; color: white; cursor: pointer; font-weight: bold; font-size: 18px; }
+        .calc-btn:hover { background: #334155; }
+        .calc-btn.equal { background: var(--primary); color: #000; grid-column: span 2; }
+
+        .btn { background: var(--primary); color: #000; padding: 15px 40px; border-radius: 12px; font-weight: 800; text-decoration: none; display: inline-block; }
+
+        @media (max-width: 1100px) {
+            .hero { flex-direction: column-reverse; text-align: center; }
+            .morphing-box { width: 350px; height: 350px; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home" class="logo">ASLBEK</a>
+        <ul>
+            <li><a href="#home">Asosiy</a></li>
+            <li><a href="#skills">Mahorat</a></li>
+            <li><a href="#game">Projects</a></li>
+            <li><a href="#contact">Aloqa</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1>Salom, <br>Man <span>Aslbek</span></h1>
+                    <p>"Men professional Junior Developerman. HTML, CSS, Java va JavaScript orqali nafaqat chiroyli interfeyslar, balki murakkab va xavfsiz backend tizimlarini ham yarataman.
+
+Hozirda IT Parkning nufuzli 'Al-Xorazmiy' loyihasi doirasida bilimlarimni yanada takomillashtiryapman. Ushbu loyiha orqali algoritmik fikrlash va yuqori yuklamali tizimlar ustida ishlash tajribasini olyapman. Har bir loyihamda kodning tozaligi (Clean Code) va foydalanuvchi uchun maksimal qulaylikni birinchi o'ringa qo'yaman. Raqamli dunyoda yangi standartlarni yaratish — mening asosiy maqsadim."</p>
+                    <div class="hero-info-grid">
+                        <div class="info-item"><h4>Manzil</h4><p>Xorazm, Xonqa</p></div>
+                        <div class="info-item"><h4>Soha</h4><p>Software Development</p></div>
+                        <div class="info-item"><h4>Ta'lim</h4><p>7-sinf o'quvchisi</p></div>
+                        <div class="info-item"><h4>Maqsad</h4><p>Full-Stack Lead</p></div>
+                        <div class="info-item"><h4>Til</h4><p>O'zbek, English (A2)</p></div>
+                        <div class="info-item"><h4>Tajriba</h4><p>Coding & Design</p></div>
+                    </div>
+                    <a href="#contact" class="btn">Bog'lanish</a>
+                </div>
+                <div class="morphing-box">
+                    <img src="img/.jpg" alt="Aslbek">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom:50px; font-size:40px; color:var(--primary)">Texnik Mahorat</h2>
+            <div class="grid">
+                <div class="card"><i class="fab fa-java"></i><h3>Java</h3><p>Backend tizimlar va ma'lumotlar bazasi.</p></div>
+                <div class="card"><i class="fab fa-js"></i><h3>JavaScript</h3><p>Dinamik veb sahifalar va algoritmlar.</p></div>
+                <div class="card"><i class="fab fa-html5"></i><h3>Web Design</h3><p>HTML5, CSS3 va zamonaviy UI/UX.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="game">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom:40px; font-size:40px; color:var(--primary)">Projects</h2>
+            <div class="projects-flex">
+                <div class="project-card">
+                    <h3 style="color:white; margin-bottom:10px;">Snake Visual</h3>
+                    <div style="color:var(--primary); margin-bottom:10px;">Score: <span id="scoreVal">0</span></div>
+                    <canvas id="snakeGame" width="300" height="300"></canvas>
+                </div>
+                <div class="project-card">
+                    <h3 style="color:white; margin-bottom:10px;">Calculator</h3>
+                    <div class="calc-body">
+                        <input type="text" id="calc-display" readonly placeholder="0">
+                        <div class="calc-buttons">
+                            <button class="calc-btn" onclick="clearCalc()" style="color:#ef4444">C</button>
+                            <button class="calc-btn" onclick="press('/')">/</button>
+                            <button class="calc-btn" onclick="press('*')">*</button>
+                            <button class="calc-btn" onclick="press('-')">-</button>
+                            <button class="calc-btn" onclick="press('7')">7</button>
+                            <button class="calc-btn" onclick="press('8')">8</button>
+                            <button class="calc-btn" onclick="press('9')">9</button>
+                            <button class="calc-btn" onclick="press('+')">+</button>
+                            <button class="calc-btn" onclick="press('4')">4</button>
+                            <button class="calc-btn" onclick="press('5')">5</button>
+                            <button class="calc-btn" onclick="press('6')">6</button>
+                            <button class="calc-btn" onclick="press('.')">.</button>
+                            <button class="calc-btn" onclick="press('1')">1</button>
+                            <button class="calc-btn" onclick="press('2')">2</button>
+                            <button class="calc-btn" onclick="press('3')">3</button>
+                            <button class="calc-btn" onclick="press('0')">0</button>
+                            <button class="calc-btn equal" onclick="calculate()">=</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom:50px; font-size:40px; color:var(--primary)">Aloqa</h2>
+            <div class="grid">
+                <a href="tel:+998950424520" class="card"><i class="fas fa-phone"></i><h3>Telefon</h3><p>+998 95 042 45 20</p></a>
+                <a href="https://t.me/ulugbekovvv_3" target="_blank" class="card"><i class="fab fa-telegram-plane"></i><h3>Telegram</h3><p>@ulugbekovvv_3</p></a>
+                <a href="https://github.com/tojibayevlutfulla-rgb" target="_blank" class="card"><i class="fab fa-github"></i><h3>GitHub</h3><p>Aslbek</p></a>
+                <a href="https://instagram.com/_u1ugbekovvvx71_" target="_blank" class="card"><i class="fab fa-instagram"></i><h3>Instagram</h3><p>_u1ugbekovvvx71_</p></a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tojibayevlutfulla@gmail.com" target="_blank" class="card"><i class="fas fa-envelope"></i><h3>Gmail</h3><p>Xat yuborish</p></a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // SNAKE
+        const canvas = document.getElementById("snakeGame");
+        const ctx = canvas.getContext("2d");
+        const box = 15;
+        let score = 0;
+        let d = "RIGHT";
+        let snake = [{x: 9 * box, y: 10 * box}, {x: 8 * box, y: 10 * box}];
+        let food = { x: Math.floor(Math.random()*19)*box, y: Math.floor(Math.random()*19)*box };
+
+        function draw() {
+            ctx.fillStyle = "black"; ctx.fillRect(0, 0, canvas.width, canvas.height);
+            for(let i=0; i<snake.length; i++) {
+                ctx.fillStyle = (i==0) ? "#38bdf8" : "#fff";
+                ctx.fillRect(snake[i].x, snake[i].y, box-1, box-1);
+            }
+            ctx.fillStyle = "red"; ctx.fillRect(food.x, food.y, box-1, box-1);
+            let headX = snake[0].x; let headY = snake[0].y;
+            if(d == "LEFT") headX -= box; if(d == "UP") headY -= box;
+            if(d == "RIGHT") headX += box; if(d == "DOWN") headY += box;
+            if(headX < 0 || headX >= canvas.width || headY < 0 || headY >= canvas.height) {
+                snake = [{x: 9 * box, y: 10 * box}]; d = "RIGHT"; score = 0;
+            } else if(headX == food.x && headY == food.y) {
+                score++; document.getElementById("scoreVal").innerText = score;
+                food = { x: Math.floor(Math.random()*19)*box, y: Math.floor(Math.random()*19)*box };
+            } else { snake.pop(); }
+            snake.unshift({x: headX, y: headY});
+        }
+        setInterval(draw, 120);
+
+        // CALC
+        const display = document.getElementById("calc-display");
+        function press(v) { display.value += v; }
+        function clearCalc() { display.value = ""; }
+        function calculate() { try { display.value = eval(display.value); } catch { display.value = "Error"; } }
+    </script>
+</body>
+</html>
